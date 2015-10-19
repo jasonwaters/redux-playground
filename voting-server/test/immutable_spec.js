@@ -17,7 +17,7 @@ describe('immutability', () => {
 		});
 	});
 
-	describe('A List', () => {
+	describe('a list', () => {
 		function addMovie(currentState, movie) {
 			return currentState.push(movie);
 		}
@@ -40,7 +40,7 @@ describe('immutability', () => {
 		});
 	});
 
-	describe('A Tree', () => {
+	describe('a tree', () => {
 		function addMovie(currentState, movie) {
 			return currentState.update('movies', movies => movies.push(movie));
 		}

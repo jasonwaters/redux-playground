@@ -155,55 +155,44 @@ describe('application logic', () => {
 	describe('vote', () => {
 		it('creates a tally for the voted entry', () => {
 			const state = Map({
-				vote: Map({
-					pair: List.of(
-						'Dumb and Dumber',
-						'Eternal Sunshine of the Spotless Mind'
-					),
-					entries: List()
-				})
+				pair: List.of(
+					'Dumb and Dumber',
+					'Eternal Sunshine of the Spotless Mind'
+				)
 			});
 			const nextState = vote(state, 'Dumb and Dumber');
 
 			expect(nextState).to.equal(Map({
-				vote: Map({
-					pair: List.of(
-						'Dumb and Dumber',
-						'Eternal Sunshine of the Spotless Mind'
-					),
-					tally: Map({
-						'Dumb and Dumber': 1
-					}),
-					entries: List()
+				pair: List.of(
+					'Dumb and Dumber',
+					'Eternal Sunshine of the Spotless Mind'
+				),
+				tally: Map({
+					'Dumb and Dumber': 1
 				})
 			}));
 		});
 
 		it('adds to existing tally for the voted entry', () => {
 			const state = Map({
-				vote: Map({
-					pair: List.of(
-						'Dumb and Dumber',
-						'Eternal Sunshine of the Spotless Mind'
-					),
-					tally: Map({
-						'Dumb and Dumber': 10
-					}),
-					entries: List()
+				pair: List.of(
+					'Dumb and Dumber',
+					'Eternal Sunshine of the Spotless Mind'
+				),
+				tally: Map({
+					'Dumb and Dumber': 10
 				})
 			});
+
 			const nextState = vote(state, 'Dumb and Dumber');
 
 			expect(nextState).to.equal(Map({
-				vote: Map({
-					pair: List.of(
-						'Dumb and Dumber',
-						'Eternal Sunshine of the Spotless Mind'
-					),
-					tally: Map({
-						'Dumb and Dumber': 11
-					}),
-					entries: List()
+				pair: List.of(
+					'Dumb and Dumber',
+					'Eternal Sunshine of the Spotless Mind'
+				),
+				tally: Map({
+					'Dumb and Dumber': 11
 				})
 			}));
 		});
